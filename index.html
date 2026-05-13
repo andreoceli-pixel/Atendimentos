@@ -36,22 +36,16 @@
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
 html,body{height:100%;background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;overscroll-behavior:none}
 body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
-
-/* Header */
 .app-header{padding:52px 20px 16px;position:sticky;top:0;background:var(--bg);z-index:10;border-bottom:1px solid var(--border)}
 .app-title{font-size:22px;font-weight:600;letter-spacing:-.5px;display:flex;align-items:center;gap:10px}
-.app-title span{color:var(--green)}
-.header-sub{font-size:13px;color:var(--text2);margin-top:4px;font-family:'DM Mono',monospace}
-
-/* Tabs */
+.header-sub{font-size:13px;color:var(--text2);margin-top:4px;font-family:'DM Mono',monospace;display:flex;align-items:center;gap:8px}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--text3)}
+.sync-dot.ok{background:var(--green)}
+.sync-dot.err{background:var(--red)}
 .tabs{display:flex;gap:4px;padding:12px 20px 0;background:var(--bg);border-bottom:1px solid var(--border);position:sticky;top:85px;z-index:9}
 .tab{flex:1;padding:8px 4px;font-size:13px;font-weight:500;color:var(--text3);border:none;background:none;cursor:pointer;border-bottom:2px solid transparent;transition:all .2s;letter-spacing:.01em}
 .tab.active{color:var(--green);border-bottom-color:var(--green)}
-
-/* Main */
 .main{flex:1;overflow-y:auto;padding:16px 20px 100px}
-
-/* Form */
 .section-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--text3);margin-bottom:10px}
 .form-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:20px}
 .field{margin-bottom:12px}
@@ -63,20 +57,14 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
 .field textarea{min-height:64px;resize:vertical;line-height:1.5}
 .field input:focus,.field select:focus,.field textarea:focus{border-color:var(--green)}
 .field-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-
 .btn-add{width:100%;padding:14px;background:var(--green);border:none;border-radius:var(--radius);font-size:15px;font-weight:600;color:#000;cursor:pointer;letter-spacing:-.01em;transition:opacity .15s;display:flex;align-items:center;justify-content:center;gap:8px;margin-top:4px}
 .btn-add:active{opacity:.8}
-
-/* Alert strip */
+.btn-add:disabled{opacity:.5;cursor:not-allowed}
 .alert-strip{background:var(--amber-dim);border:1px solid var(--amber);border-radius:var(--radius-sm);padding:12px 14px;margin-bottom:16px;font-size:13px;color:var(--amber);display:none;align-items:center;gap:10px;animation:slidein .3s ease}
 @keyframes slidein{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
-.alert-strip svg{min-width:18px}
-
-/* Client list */
 .list-empty{text-align:center;padding:40px 20px;color:var(--text3)}
 .list-empty svg{opacity:.3;margin-bottom:12px}
 .list-empty p{font-size:14px}
-
 .client-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:14px 16px;margin-bottom:10px;transition:border-color .2s}
 .client-card.pendente{border-left:3px solid var(--amber)}
 .client-card.andamento{border-left:3px solid var(--blue)}
@@ -91,7 +79,6 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
 .badge.concluido{background:var(--surface2);color:var(--text3)}
 .client-meta{display:flex;align-items:center;gap:8px;margin-top:10px;flex-wrap:wrap}
 .meta-chip{font-size:11px;color:var(--text3);font-family:'DM Mono',monospace;display:flex;align-items:center;gap:4px}
-.meta-chip svg{opacity:.6}
 .reminder-chip{background:var(--green-dim);color:var(--green);padding:3px 9px;border-radius:99px;font-size:11px;font-weight:600;font-family:'DM Mono',monospace}
 .reminder-chip.late{background:var(--red-dim);color:var(--red)}
 .client-actions{display:flex;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid var(--border)}
@@ -102,14 +89,10 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
 .act-btn.play{border-color:#1e3a5f;color:var(--blue);background:var(--blue-dim)}
 .act-btn.del{border-color:#3a1515;color:var(--red);background:var(--red-dim)}
 .act-btn.reopen{color:var(--text2)}
-
-/* Notif permission banner */
 .notif-banner{background:var(--surface);border:1px solid var(--border2);border-radius:var(--radius);padding:14px 16px;margin-bottom:16px;display:none}
 .notif-banner p{font-size:13px;color:var(--text2);margin-bottom:10px}
 .notif-banner p strong{color:var(--text)}
 .btn-allow{width:100%;padding:10px;background:var(--surface2);border:1px solid var(--border2);border-radius:var(--radius-sm);color:var(--green);font-size:14px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif}
-
-/* Stats bar */
 .stats-bar{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
 .stat-box{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-sm);padding:10px 12px;text-align:center}
 .stat-num{font-size:22px;font-weight:600;font-family:'DM Mono',monospace;line-height:1}
@@ -117,12 +100,8 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
 .stat-num.amber{color:var(--amber)}
 .stat-num.blue{color:var(--blue)}
 .stat-num.green{color:var(--green)}
-
-/* FAB */
 .fab{position:fixed;bottom:28px;right:20px;width:56px;height:56px;border-radius:50%;background:var(--green);border:none;color:#000;font-size:26px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(34,197,94,.35);transition:transform .15s;z-index:20}
 .fab:active{transform:scale(.93)}
-
-/* Sheet overlay */
 .sheet-overlay{position:fixed;inset:0;background:rgba(0,0,0,.7);z-index:30;display:none;align-items:flex-end}
 .sheet-overlay.open{display:flex;animation:fadein .2s}
 @keyframes fadein{from{opacity:0}to{opacity:1}}
@@ -130,16 +109,28 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
 @keyframes slideup{from{transform:translateY(100%)}to{transform:translateY(0)}}
 .sheet-handle{width:36px;height:4px;background:var(--border2);border-radius:99px;margin:0 auto 20px}
 .sheet-title{font-size:17px;font-weight:600;margin-bottom:16px;letter-spacing:-.02em}
+.loading-overlay{position:fixed;inset:0;background:var(--bg);display:flex;align-items:center;justify-content:center;z-index:100;flex-direction:column;gap:12px}
+.loading-overlay p{color:var(--text2);font-size:14px}
+.spinner{width:32px;height:32px;border:2px solid var(--border2);border-top-color:var(--green);border-radius:50%;animation:spin .7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
+
+<div class="loading-overlay" id="loading-overlay">
+  <div class="spinner"></div>
+  <p>Conectando...</p>
+</div>
 
 <header class="app-header">
   <div class="app-title">
     <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="#22c55e"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.985-1.407A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="#22c55e" stroke-width="1.5" fill="none"/></svg>
     Atendimentos
   </div>
-  <div class="header-sub" id="header-time">--:--</div>
+  <div class="header-sub">
+    <div class="sync-dot" id="sync-dot"></div>
+    <span id="header-time">--:--</span>
+  </div>
 </header>
 
 <div class="tabs">
@@ -148,29 +139,18 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
   <button class="tab" onclick="setTab('concluidos',this)">Concluídos</button>
 </div>
 
-<main class="main" id="main-content">
-  <!-- rendered by JS -->
-</main>
+<main class="main" id="main-content"></main>
 
-<!-- FAB -->
-<button class="fab" id="fab-btn" title="Novo cliente" aria-label="Adicionar cliente" style="display:none">+</button>
+<button class="fab" id="fab-btn" style="display:none" aria-label="Novo cliente">+</button>
 
-<!-- Sheet de novo cliente -->
 <div class="sheet-overlay" id="sheet-overlay" onclick="closeSheet(event)">
-  <div class="sheet" id="sheet">
+  <div class="sheet">
     <div class="sheet-handle"></div>
     <div class="sheet-title">Novo atendimento</div>
-    <div class="field">
-      <label>Nome do cliente *</label>
-      <input id="s-nome" placeholder="Ex: João Silva" autocomplete="off"/>
-    </div>
+    <div class="field"><label>Nome do cliente *</label><input id="s-nome" placeholder="Ex: João Silva" autocomplete="off"/></div>
     <div class="field-row">
-      <div class="field">
-        <label>WhatsApp *</label>
-        <input id="s-tel" type="tel" placeholder="(71) 9 9999-9999" autocomplete="off"/>
-      </div>
-      <div class="field">
-        <label>Lembrar em</label>
+      <div class="field"><label>WhatsApp *</label><input id="s-tel" type="tel" placeholder="(31) 9 9999-9999" autocomplete="off"/></div>
+      <div class="field"><label>Lembrar em</label>
         <select id="s-lembrete">
           <option value="">Sem</option>
           <option value="10">10 min</option>
@@ -186,15 +166,9 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
         </select>
       </div>
     </div>
-    <div class="field">
-      <label>Assunto</label>
-      <input id="s-assunto" placeholder="Ex: Orçamento, dúvida, suporte..." autocomplete="off"/>
-    </div>
-    <div class="field">
-      <label>Observação</label>
-      <textarea id="s-obs" placeholder="Detalhe o que o cliente precisa..."></textarea>
-    </div>
-    <button class="btn-add" onclick="addCliente()">
+    <div class="field"><label>Assunto</label><input id="s-assunto" placeholder="Ex: Orçamento, dúvida..." autocomplete="off"/></div>
+    <div class="field"><label>Observação</label><textarea id="s-obs" placeholder="Detalhe o que o cliente precisa..."></textarea></div>
+    <button class="btn-add" id="btn-cadastrar" onclick="addCliente()">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
       Cadastrar cliente
     </button>
@@ -202,194 +176,257 @@ body{display:flex;flex-direction:column;max-width:480px;margin:0 auto}
 </div>
 
 <script>
+// ── Config Supabase ──
+const SUPA_URL = 'https://lspwmxvkcmyepndkxfdy.supabase.co';
+const SUPA_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImxzcHdteHZrY215ZXBuZGt4ZmR5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Nzg2NTgxNDUsImV4cCI6MjA5NDIzNDE0NX0.L92zdRJtKZduNY0JYNreiZlVOXtMf81WDpGcdPl8R5A';
+const HEADERS = {'Content-Type':'application/json','apikey':SUPA_KEY,'Authorization':'Bearer '+SUPA_KEY};
+
 // ── State ──
-let clientes = JSON.parse(localStorage.getItem('atend_v2') || '[]');
+let clientes = [];
 let currentTab = 'lista';
 let timers = {};
-let alertVisible = false;
+let audioCtx = null;
 
-function save(){ localStorage.setItem('atend_v2', JSON.stringify(clientes)); }
+// ── API ──
+async function apiGet(){
+  const r = await fetch(SUPA_URL+'/rest/v1/clientes?select=*&order=ts.desc',{headers:HEADERS});
+  return r.ok ? r.json() : [];
+}
+async function apiInsert(c){
+  const r = await fetch(SUPA_URL+'/rest/v1/clientes',{method:'POST',headers:{...HEADERS,'Prefer':'return=representation'},body:JSON.stringify(c)});
+  return r.ok ? (await r.json())[0] : null;
+}
+async function apiUpdate(id,data){
+  await fetch(SUPA_URL+'/rest/v1/clientes?id=eq.'+id,{method:'PATCH',headers:HEADERS,body:JSON.stringify(data)});
+}
+async function apiDelete(id){
+  await fetch(SUPA_URL+'/rest/v1/clientes?id=eq.'+id,{method:'DELETE',headers:HEADERS});
+}
+
+// ── Realtime polling ──
+let lastPoll = 0;
+async function poll(){
+  try{
+    const data = await apiGet();
+    clientes = data;
+    setSyncOk(true);
+    checkLembretes();
+    render();
+  }catch(e){setSyncOk(false)}
+  lastPoll = Date.now();
+}
+
+function setSyncOk(ok){
+  const d = document.getElementById('sync-dot');
+  if(d){d.className='sync-dot '+(ok?'ok':'err');}
+}
+
+// Poll a cada 10s para tempo real
+setInterval(poll, 10000);
+
+// ── Som de alarme ──
+function playAlarm(){
+  try{
+    if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+    const freqs = [880,1100,880,1100,880];
+    freqs.forEach((freq,i)=>{
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.frequency.value = freq;
+      osc.type = 'sine';
+      const t = audioCtx.currentTime + i*0.3;
+      gain.gain.setValueAtTime(0.4, t);
+      gain.gain.exponentialRampToValueAtTime(0.001, t+0.25);
+      osc.start(t);
+      osc.stop(t+0.25);
+    });
+  }catch(e){}
+}
+
+// ── Lembretes ──
+function checkLembretes(){
+  const now = Date.now();
+  clientes.forEach(c=>{
+    if(c.status==='concluido') return;
+    if(!c.lembrete_ts) return;
+    const ts = Number(c.lembrete_ts);
+    if(ts <= now && ts > now - 60000){
+      // Disparar apenas uma vez por cliente
+      const key = 'fired_'+c.id+'_'+ts;
+      if(!localStorage.getItem(key)){
+        localStorage.setItem(key,'1');
+        fireReminder(c);
+      }
+    }
+  });
+}
+
+function scheduleReminder(c){
+  if(!c.lembrete_ts) return;
+  const delay = Number(c.lembrete_ts) - Date.now();
+  if(delay <= 0){ fireReminder(c); return; }
+  if(timers[c.id]) clearTimeout(timers[c.id]);
+  timers[c.id] = setTimeout(()=>{ fireReminder(c); }, delay);
+}
+
+function fireReminder(c){
+  const msg = '⏰ '+c.nome+(c.assunto?' — '+c.assunto:'')+' ainda aguarda resposta!';
+  playAlarm();
+  showAlert(msg);
+  if('Notification' in window && Notification.permission==='granted'){
+    new Notification('Atendimento pendente',{
+      body: msg,
+      tag: 'atend_'+c.id,
+      renotify: true,
+      requireInteraction: true
+    });
+  }
+}
+
+function showAlert(msg){
+  const el = document.getElementById('alert-bar');
+  if(!el) return;
+  el.querySelector('span').textContent = msg;
+  el.style.display = 'flex';
+  clearTimeout(window._alertTimer);
+  window._alertTimer = setTimeout(()=>{ el.style.display='none'; }, 9000);
+}
+
+// ── Add ──
+async function addCliente(){
+  const nome    = document.getElementById('s-nome').value.trim();
+  const tel     = document.getElementById('s-tel').value.trim();
+  const lmin    = parseInt(document.getElementById('s-lembrete').value)||0;
+  const assunto = document.getElementById('s-assunto').value.trim();
+  const obs     = document.getElementById('s-obs').value.trim();
+  if(!nome||!tel){ showAlert('Preencha nome e WhatsApp!'); return; }
+  const btn = document.getElementById('btn-cadastrar');
+  btn.disabled = true;
+  btn.textContent = 'Salvando...';
+  // Ativar áudio no primeiro toque do usuário
+  if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  const now = Date.now();
+  const c = {nome,tel,assunto,obs,status:'pendente',ts:now,lembrete_min:lmin,lembrete_ts:lmin?now+lmin*60000:null};
+  const saved = await apiInsert(c);
+  if(saved) scheduleReminder(saved);
+  ['s-nome','s-tel','s-assunto','s-obs'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('s-lembrete').value='';
+  btn.disabled=false;
+  btn.innerHTML='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg> Cadastrar cliente';
+  document.getElementById('sheet-overlay').classList.remove('open');
+  currentTab='lista';
+  document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',i===0));
+  document.getElementById('fab-btn').style.display='flex';
+  await poll();
+}
+
+async function addClienteForm(){
+  const nome    = (document.getElementById('f-nome')||{value:''}).value.trim();
+  const tel     = (document.getElementById('f-tel')||{value:''}).value.trim();
+  const lmin    = parseInt((document.getElementById('f-lembrete')||{value:''}).value)||0;
+  const assunto = (document.getElementById('f-assunto')||{value:''}).value.trim();
+  const obs     = (document.getElementById('f-obs')||{value:''}).value.trim();
+  if(!nome||!tel){ showAlert('Preencha nome e WhatsApp!'); return; }
+  if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+  const now = Date.now();
+  const c = {nome,tel,assunto,obs,status:'pendente',ts:now,lembrete_min:lmin,lembrete_ts:lmin?now+lmin*60000:null};
+  const saved = await apiInsert(c);
+  if(saved) scheduleReminder(saved);
+  currentTab='lista';
+  document.querySelectorAll('.tab').forEach((b,i)=>b.classList.toggle('active',i===0));
+  document.getElementById('fab-btn').style.display='flex';
+  await poll();
+}
+
+// ── Status ──
+async function setStatus(id,status){
+  await apiUpdate(id,{status});
+  await poll();
+}
+async function remover(id){
+  if(!confirm('Remover este cliente da fila?')) return;
+  if(timers[id]) clearTimeout(timers[id]);
+  await apiDelete(id);
+  await poll();
+}
+function abrirWhatsApp(tel){
+  const n=tel.replace(/\D/g,'');
+  const full=n.startsWith('55')?n:'55'+n;
+  window.open('https://wa.me/'+full,'_blank');
+}
+
+// ── Helpers ──
+function timeAgo(ts){
+  const d=Math.floor((Date.now()-Number(ts))/1000);
+  if(d<60) return 'agora';
+  if(d<3600) return Math.floor(d/60)+'min';
+  if(d<86400) return Math.floor(d/3600)+'h';
+  return Math.floor(d/86400)+'d';
+}
+function reminderLabel(c){
+  if(!c.lembrete_ts) return '';
+  const diff=Number(c.lembrete_ts)-Date.now();
+  if(diff<=0) return '<span class="reminder-chip late">⏰ atrasado</span>';
+  const m=Math.ceil(diff/60000);
+  if(m<60) return '<span class="reminder-chip">⏱ '+m+'min</span>';
+  return '<span class="reminder-chip">⏱ '+Math.ceil(m/60)+'h</span>';
+}
 
 // ── Tabs ──
-function setTab(tab, btn){
-  currentTab = tab;
-  document.querySelectorAll('.tab').forEach(b => b.classList.remove('active'));
+function setTab(tab,btn){
+  currentTab=tab;
+  document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  const fab = document.getElementById('fab-btn');
-  fab.style.display = (tab === 'lista' || tab === 'concluidos') ? 'flex' : 'none';
+  const fab=document.getElementById('fab-btn');
+  fab.style.display=(tab==='lista'||tab==='concluidos')?'flex':'none';
   render();
 }
 
 // ── Sheet ──
 function openSheet(){
   document.getElementById('sheet-overlay').classList.add('open');
-  setTimeout(() => document.getElementById('s-nome').focus(), 300);
+  setTimeout(()=>document.getElementById('s-nome').focus(),300);
 }
 function closeSheet(e){
-  if(e && e.target !== document.getElementById('sheet-overlay')) return;
+  if(e&&e.target!==document.getElementById('sheet-overlay')) return;
   document.getElementById('sheet-overlay').classList.remove('open');
 }
-document.getElementById('fab-btn').onclick = openSheet;
-
-// ── Add ──
-function addCliente(){
-  const nome = document.getElementById('s-nome').value.trim();
-  const tel  = document.getElementById('s-tel').value.trim();
-  const lmin = parseInt(document.getElementById('s-lembrete').value) || 0;
-  const assunto = document.getElementById('s-assunto').value.trim();
-  const obs = document.getElementById('s-obs').value.trim();
-  if(!nome || !tel){ showAlert('Preencha nome e WhatsApp!'); return; }
-  const c = {
-    id: Date.now(),
-    nome, tel, assunto, obs,
-    status: 'pendente',
-    ts: Date.now(),
-    lembreteMin: lmin,
-    lembreteTs: lmin ? Date.now() + lmin * 60000 : null
-  };
-  clientes.unshift(c);
-  save();
-  if(lmin) scheduleReminder(c);
-  // clear
-  ['s-nome','s-tel','s-assunto','s-obs'].forEach(id => document.getElementById(id).value = '');
-  document.getElementById('s-lembrete').value = '';
-  document.getElementById('sheet-overlay').classList.remove('open');
-  currentTab = 'lista';
-  document.querySelectorAll('.tab').forEach((b,i) => b.classList.toggle('active', i===0));
-  document.getElementById('fab-btn').style.display = 'flex';
-  render();
-}
-
-// ── Notifications ──
-function askNotifPermission(){
-  if(!('Notification' in window)) return;
-  Notification.requestPermission().then(render);
-}
-
-function scheduleReminder(c){
-  if(timers[c.id]) clearTimeout(timers[c.id]);
-  const delay = c.lembreteTs - Date.now();
-  if(delay <= 0){ fireReminder(c); return; }
-  timers[c.id] = setTimeout(() => {
-    const atual = clientes.find(x => x.id === c.id);
-    if(atual && atual.status !== 'concluido') fireReminder(atual);
-  }, delay);
-}
-
-function fireReminder(c){
-  const msg = `⏰ ${c.nome}${c.assunto ? ' — ' + c.assunto : ''} ainda aguarda resposta!`;
-  // Browser Notification
-  if('Notification' in window && Notification.permission === 'granted'){
-    const n = new Notification('Atendimento pendente', {
-      body: msg,
-      icon: 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="50" fill="%2322c55e"/><text y=".9em" font-size="70" x="15">📋</text></svg>',
-      tag: 'atend_' + c.id,
-      renotify: true,
-      requireInteraction: true
-    });
-    n.onclick = () => { window.focus(); n.close(); };
-  }
-  // In-app alert
-  showAlert(msg);
-  render();
-}
-
-function showAlert(msg){
-  let el = document.getElementById('alert-bar');
-  if(!el) return;
-  el.querySelector('span').textContent = msg;
-  el.style.display = 'flex';
-  clearTimeout(window._alertTimer);
-  window._alertTimer = setTimeout(() => { el.style.display = 'none'; }, 7000);
-}
-
-// ── Status ──
-function setStatus(id, status){
-  const c = clientes.find(x => x.id === id);
-  if(c){ c.status = status; save(); render(); }
-}
-function remover(id){
-  if(!confirm('Remover este cliente da fila?')) return;
-  if(timers[id]) clearTimeout(timers[id]);
-  clientes = clientes.filter(x => x.id !== id);
-  save(); render();
-}
-function abrirWhatsApp(tel){
-  const n = tel.replace(/\D/g,'');
-  const full = n.startsWith('55') ? n : '55' + n;
-  window.open('https://wa.me/' + full, '_blank');
-}
-
-// ── Helpers ──
-function timeAgo(ts){
-  const d = Math.floor((Date.now()-ts)/1000);
-  if(d < 60) return 'agora';
-  if(d < 3600) return Math.floor(d/60) + 'min';
-  if(d < 86400) return Math.floor(d/3600) + 'h';
-  return Math.floor(d/86400) + 'd';
-}
-function initials(nome){
-  const p = nome.trim().split(' ');
-  return p.length > 1 ? (p[0][0]+p[p.length-1][0]).toUpperCase() : nome.slice(0,2).toUpperCase();
-}
-function reminderLabel(c){
-  if(!c.lembreteTs) return '';
-  const diff = c.lembreteTs - Date.now();
-  if(diff <= 0) return `<span class="reminder-chip late">atrasado</span>`;
-  const m = Math.ceil(diff/60000);
-  if(m < 60) return `<span class="reminder-chip">⏱ ${m}min</span>`;
-  return `<span class="reminder-chip">⏱ ${Math.ceil(m/60)}h</span>`;
-}
+document.getElementById('fab-btn').onclick=openSheet;
 
 // ── Render ──
 function render(){
-  const main = document.getElementById('main-content');
-  const pendentes  = clientes.filter(c => c.status === 'pendente');
-  const andamento  = clientes.filter(c => c.status === 'andamento');
-  const concluidos = clientes.filter(c => c.status === 'concluido');
+  const main=document.getElementById('main-content');
+  const pendentes=clientes.filter(c=>c.status==='pendente');
+  const andamento=clientes.filter(c=>c.status==='andamento');
+  const concluidos=clientes.filter(c=>c.status==='concluido');
+  const needNotif='Notification' in window&&Notification.permission==='default';
+  let html='';
+  html+=`<div class="alert-strip" id="alert-bar" style="display:none"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg><span></span></div>`;
 
-  // Notif banner
-  const needNotif = 'Notification' in window && Notification.permission === 'default';
-
-  let html = '';
-
-  // Alert bar always present
-  html += `<div class="alert-strip" id="alert-bar" style="display:none">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 006 8c0 7-3 9-3 9h18s-3-2-3-9M13.73 21a2 2 0 01-3.46 0"/></svg>
-    <span></span>
-  </div>`;
-
-  if(currentTab === 'lista'){
-    // Notif permission
+  if(currentTab==='lista'){
     if(needNotif){
-      html += `<div class="notif-banner" style="display:block">
-        <p><strong>Ative as notificações</strong> para receber lembretes mesmo com o app em segundo plano.</p>
-        <button class="btn-allow" onclick="askNotifPermission()">Permitir notificações</button>
-      </div>`;
+      html+=`<div class="notif-banner" style="display:block"><p><strong>Ative as notificações</strong> para receber alertas mesmo com o app em segundo plano.</p><button class="btn-allow" onclick="askNotif()">Permitir notificações</button></div>`;
     }
-    // Stats
-    html += `<div class="stats-bar">
+    html+=`<div class="stats-bar">
       <div class="stat-box"><div class="stat-num amber">${pendentes.length}</div><div class="stat-label">Pendentes</div></div>
       <div class="stat-box"><div class="stat-num blue">${andamento.length}</div><div class="stat-label">Andamento</div></div>
       <div class="stat-box"><div class="stat-num green">${concluidos.length}</div><div class="stat-label">Concluídos</div></div>
     </div>`;
-    const lista = [...pendentes, ...andamento];
+    const lista=[...pendentes,...andamento];
     if(!lista.length){
-      html += `<div class="list-empty">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
-        <p>Nenhum cliente na fila.<br>Toque no <strong>+</strong> para cadastrar.</p>
-      </div>`;
+      html+=`<div class="list-empty"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg><p>Nenhum cliente na fila.<br>Toque no <strong>+</strong> para cadastrar.</p></div>`;
     } else {
-      html += lista.map(c => clientCard(c)).join('');
+      html+=lista.map(c=>clientCard(c)).join('');
     }
-
-  } else if(currentTab === 'novo'){
-    html += `<div style="padding:20px 0">
+  } else if(currentTab==='novo'){
+    html+=`<div style="padding-top:8px">
       <div class="section-label">Cadastrar novo cliente</div>
       <div class="form-card">
         <div class="field"><label>Nome do cliente *</label><input id="f-nome" placeholder="Ex: Maria Santos" autocomplete="off"/></div>
         <div class="field-row">
-          <div class="field"><label>WhatsApp *</label><input id="f-tel" type="tel" placeholder="(71) 9 9999-9999" autocomplete="off"/></div>
+          <div class="field"><label>WhatsApp *</label><input id="f-tel" type="tel" placeholder="(31) 9 9999-9999" autocomplete="off"/></div>
           <div class="field"><label>Lembrar em</label>
             <select id="f-lembrete">
               <option value="">Sem</option>
@@ -406,7 +443,7 @@ function render(){
             </select>
           </div>
         </div>
-        <div class="field"><label>Assunto</label><input id="f-assunto" placeholder="Ex: Orçamento, dúvida, suporte..." autocomplete="off"/></div>
+        <div class="field"><label>Assunto</label><input id="f-assunto" placeholder="Ex: Orçamento, dúvida..." autocomplete="off"/></div>
         <div class="field"><label>Observação</label><textarea id="f-obs" placeholder="Detalhe o que o cliente precisa..."></textarea></div>
         <button class="btn-add" onclick="addClienteForm()">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12h14"/></svg>
@@ -414,100 +451,73 @@ function render(){
         </button>
       </div>
     </div>`;
-
-  } else if(currentTab === 'concluidos'){
+  } else if(currentTab==='concluidos'){
     if(!concluidos.length){
-      html += `<div class="list-empty" style="margin-top:20px">
-        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg>
-        <p>Nenhum atendimento concluído ainda.</p>
-      </div>`;
+      html+=`<div class="list-empty" style="margin-top:20px"><svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="12" r="10"/><path d="M9 12l2 2 4-4"/></svg><p>Nenhum atendimento concluído ainda.</p></div>`;
     } else {
-      html += `<div style="padding-top:8px">` + concluidos.map(c => clientCard(c)).join('') + `</div>`;
+      html+=`<div style="padding-top:8px">`+concluidos.map(c=>clientCard(c)).join('')+`</div>`;
     }
   }
-
-  main.innerHTML = html;
-
-  // Show FAB
-  const fab = document.getElementById('fab-btn');
-  fab.style.display = (currentTab === 'lista' || currentTab === 'concluidos') ? 'flex' : 'none';
-}
-
-function addClienteForm(){
-  const nome    = (document.getElementById('f-nome')||{value:''}).value.trim();
-  const tel     = (document.getElementById('f-tel')||{value:''}).value.trim();
-  const lmin    = parseInt((document.getElementById('f-lembrete')||{value:''}).value) || 0;
-  const assunto = (document.getElementById('f-assunto')||{value:''}).value.trim();
-  const obs     = (document.getElementById('f-obs')||{value:''}).value.trim();
-  if(!nome || !tel){ showAlert('Preencha nome e WhatsApp!'); return; }
-  const c = {id:Date.now(),nome,tel,assunto,obs,status:'pendente',ts:Date.now(),lembreteMin:lmin,lembreteTs:lmin?Date.now()+lmin*60000:null};
-  clientes.unshift(c);
-  save();
-  if(lmin) scheduleReminder(c);
-  currentTab = 'lista';
-  document.querySelectorAll('.tab').forEach((b,i) => b.classList.toggle('active', i===0));
-  document.getElementById('fab-btn').style.display = 'flex';
-  render();
+  main.innerHTML=html;
+  document.getElementById('fab-btn').style.display=(currentTab==='lista'||currentTab==='concluidos')?'flex':'none';
 }
 
 function clientCard(c){
-  const isConc = c.status === 'concluido';
-  let actions = '';
+  const isConc=c.status==='concluido';
+  let actions='';
   if(!isConc){
-    actions += `<button class="act-btn wpp" onclick="abrirWhatsApp('${c.tel}')">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.985-1.407A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>
-      WhatsApp
-    </button>`;
-    if(c.status === 'pendente'){
-      actions += `<button class="act-btn play" onclick="setStatus(${c.id},'andamento')">▶ Iniciar</button>`;
-      actions += `<button class="act-btn ok" onclick="setStatus(${c.id},'concluido')">✓ OK</button>`;
-    } else {
-      actions += `<button class="act-btn ok" onclick="setStatus(${c.id},'concluido')">✓ Concluir</button>`;
-    }
+    actions+=`<button class="act-btn wpp" onclick="abrirWhatsApp('${c.tel}')"><svg width="14" height="14" viewBox="0 0 24 24" fill="none"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" fill="currentColor"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.985-1.407A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg> WhatsApp</button>`;
+    if(c.status==='pendente') actions+=`<button class="act-btn play" onclick="setStatus(${c.id},'andamento')">▶ Iniciar</button>`;
+    actions+=`<button class="act-btn ok" onclick="setStatus(${c.id},'concluido')">✓ OK</button>`;
   } else {
-    actions += `<button class="act-btn reopen" onclick="setStatus(${c.id},'pendente')">↩ Reabrir</button>`;
+    actions+=`<button class="act-btn reopen" onclick="setStatus(${c.id},'pendente')">↩ Reabrir</button>`;
   }
-  actions += `<button class="act-btn del" onclick="remover(${c.id})">✕</button>`;
-
+  actions+=`<button class="act-btn del" onclick="remover(${c.id})">✕</button>`;
   return `<div class="client-card ${c.status}">
     <div class="client-top">
       <div>
         <div class="client-name">${c.nome}</div>
-        ${c.assunto ? `<div class="client-assunto">${c.assunto}</div>` : ''}
-        ${c.obs ? `<div class="client-obs">${c.obs}</div>` : ''}
+        ${c.assunto?`<div class="client-assunto">${c.assunto}</div>`:''}
+        ${c.obs?`<div class="client-obs">${c.obs}</div>`:''}
       </div>
       <span class="badge ${c.status}">${{pendente:'Pendente',andamento:'Em andamento',concluido:'Concluído'}[c.status]}</span>
     </div>
     <div class="client-meta">
-      <span class="meta-chip">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.77 12 19.79 19.79 0 011.72 3.42 2 2 0 013.71 1.25h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.96a16 16 0 006.29 6.29l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
-        ${c.tel}
-      </span>
-      <span class="meta-chip">
-        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
-        ${timeAgo(c.ts)}
-      </span>
+      <span class="meta-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.77 12 19.79 19.79 0 011.72 3.42 2 2 0 013.71 1.25h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.91 8.96a16 16 0 006.29 6.29l1.28-1.28a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>${c.tel}</span>
+      <span class="meta-chip"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>${timeAgo(c.ts)}</span>
       ${reminderLabel(c)}
     </div>
     <div class="client-actions">${actions}</div>
   </div>`;
 }
 
+function askNotif(){
+  if('Notification' in window) Notification.requestPermission().then(render);
+}
+
 // ── Clock ──
 function updateClock(){
-  const now = new Date();
-  const h = String(now.getHours()).padStart(2,'0');
-  const m = String(now.getMinutes()).padStart(2,'0');
-  document.getElementById('header-time').textContent = h + ':' + m;
+  const now=new Date();
+  const h=String(now.getHours()).padStart(2,'0');
+  const m=String(now.getMinutes()).padStart(2,'0');
+  const el=document.getElementById('header-time');
+  if(el) el.textContent=h+':'+m;
 }
 updateClock();
-setInterval(updateClock, 10000);
-setInterval(render, 60000);
+setInterval(updateClock,10000);
+
+// ── Notif permission ──
+if('Notification' in window && Notification.permission==='default') Notification.requestPermission();
 
 // ── Init ──
-clientes.forEach(c => { if(c.lembreteTs && c.lembreteTs > Date.now()) scheduleReminder(c); });
-document.getElementById('fab-btn').style.display = 'flex';
-render();
+async function init(){
+  await poll();
+  clientes.forEach(c=>{ if(c.lembrete_ts && Number(c.lembrete_ts)>Date.now()) scheduleReminder(c); });
+  document.getElementById('loading-overlay').style.display='none';
+  document.getElementById('fab-btn').style.display='flex';
+  render();
+}
+init();
 </script>
 </body>
 </html>
